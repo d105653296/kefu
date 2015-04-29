@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>权限管理</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+    <script type="text/javascript" src="__JS__/ckform.js"></script>
+    <script type="text/javascript" src="__JS__/common.js"></script>
+    <script type="text/javascript">
+            $(function() {
+                var all_checked = false;
+                $(":checkbox").click(function() {
+                    var table = $(this).parents("table");
+                    if($(this).attr("id") === "all") {
+                        table.find(":checkbox").prop("checked", !all_checked);
+                        all_checked = !all_checked;
+                    }
+                    else {
+                        table.find(":checkbox[id!=all]").each(function (i) {
+                            if(!$(this).is(":checked")) {
+                                table.find("#all").prop("checked", false);
+                                all_checked = false;
+                                return false;
+                            }
+                            $("#all").prop("checked", true);
+                            all_checked = true;
+                        });
+                    }
+                });
+            });
+        </script>
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <form method="post" action="{:U('User/power',array('pid'=>$_GET[pid]))}">
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+    <tr>
+        <th><input class="check-all" type="checkbox" id='all' name="all" /></th>
+        <th>编号</th>
+        <th>分类ID</th>
+        <th>分类名称</th>
+        <th>投稿</th>
+        <th>模型</th>
+    </tr>
+    </thead>
+    <volist name='tree' id='vo'>
+        <tr>
+            <td><input type="checkbox" name="pid[]" value="{$vo.id}" /></td>
+            <td>{$vo.sort}</td>
+            <td>{$vo.id}</td>
+            <td>{$vo.title}</td>
+            <td><php>if($vo[allow]==1){echo '允许';}else{echo '禁止';}</php></td>
+            <td>{:Getmodelname($vo[modelid])}</td>
+        </tr>
+        {:R('Category/tree',array('id'=>$vo['id']))}
+    </volist>
+    <tr><td colspan="6"><button type="submit" class="btn btn-primary">确定</button></td></tr>
+</table>
+    </form>
+<div class="inline pull-right page">
+</body>
+</html>

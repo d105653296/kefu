@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+        <link href="__CSS__/bui-min.css" rel="stylesheet">
+    <link href="__CSS__/dpl-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+    <script type="text/javascript" src="__JS__/ckform.js"></script>
+    <script type="text/javascript" src="__JS__/common.js"></script> 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <form  id="J_Form" action="{:U('Model/update',array('id'=>$_Get[id]))}" method="post" class="definewidth m20">
+<table class="table table-bordered table-hover ">
+    <tr>
+    <input hidden="hidden" value="{$list.id}" name="data[id]"/>
+        <td width="10%" class="tableleft"><em style="color:red;">*</em>模&nbsp;&nbsp;&nbsp;型：</td>
+        <td><input type="text" name="data[title]" data-rules="{required : true}" value="{$list.title}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em>名称(英文)：</td>
+        <td ><input type="text" name="data[name]" data-rules="{required : true}" value="{$list.name}"/></td>
+    </tr>  
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em>状&nbsp;&nbsp;&nbsp;态：</td>
+        
+<!--            <td ><input type="text" name="data[email]" value=""/></td>-->
+            <td ><input type="radio" name="data[status]" value="1" checked/> 启用
+           <input type="radio" name="data[status]" value="0" /> 禁用</td>
+        
+    </tr>     
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button type="submit" class="btn btn-primary">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+        <script src="__JS__/jquery-1.8.1.min.js"></script>
+        <script src="__JS__/bui-min.js"></script>
+        <script src="__JS__/config-min.js"></script>
+        <script type="text/javascript">
+            BUI.use('bui/form', function(Form) {
+
+                new Form.Form({
+                    srcNode: '#J_Form'
+                }).render();
+
+            });
+
+        </script>
+</body>
+</html>
+<script>
+    $(function () {       
+		$('#backid').click(function(){
+				window.location.href="{:U('Model/index')}";
+		 });
+
+    });
+</script>

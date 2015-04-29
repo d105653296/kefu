@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+    <script type="text/javascript" src="__JS__/ckform.js"></script>
+    <script type="text/javascript" src="__JS__/common.js"></script>
+    <script type="text/javascript">
+            $(function() {
+                var all_checked = false;
+                $(":checkbox").click(function() {
+                    var table = $(this).parents("table");
+                    if($(this).attr("id") === "all") {
+                        table.find(":checkbox").prop("checked", !all_checked);
+                        all_checked = !all_checked;
+                    }
+                    else {
+                        table.find(":checkbox[id!=all]").each(function (i) {
+                            if(!$(this).is(":checked")) {
+                                table.find("#all").prop("checked", false);
+                                all_checked = false;
+                                return false;
+                            }
+                            $("#all").prop("checked", true);
+                            all_checked = true;
+                        });
+                    }
+                });
+            });
+        </script>
+    <script type="text/javascript">
+            function check(){
+                document.form.action="{:U('User/check')}";
+                document.form.submit();
+            }
+    </script>
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="{:U('User/ldel')}" method="post" name="form">
+<table class="table table-bordered table-hover definewidth m10" >
+    <thead>
+    <tr>
+        <th><input class="check-all" type="checkbox" id='all' name="all" /></th>
+        <th>编号</th>
+        <th>日志内容</th>
+        <th>操作时间</th>
+        <th>资金变更</th>
+        <th>管理员</th>
+        <th>管理操作</th>
+    </tr>
+    </thead>
+    <volist name='list' id='vo'>
+        <tr>
+            <td><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <td>{$vo.id}</td>
+            <td>{$vo.log}</td>
+            <td>{$vo.updatetime}</td>
+            <td>{$vo.m_change}</td>
+            <td>{$vo.manager}</td>
+            <td>
+                <a href="{:U('User/del',array('id'=>$vo[id]))}">删除</a>
+            </td>
+        </tr>
+    </volist>
+	<tr><td colspan="12"><button type="submit" class="btn btn-primary">删除</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button></td></tr>    
+</table>
+    </form>
+<div class="inline pull-right page">
+    {$page}
+         <!--10122 条记录 1/507 页  <a href='#'>下一页</a>     <span class='current'>1</span><a href='#'>2</a><a href='/chinapost/index.php?m=Label&a=index&p=3'>3</a><a href='#'>4</a><a href='#'>5</a>  <a href='#' >下5页</a> <a href='#' >最后一页</a>    </div>-->
+</body>
+</html>
+<script>
+    $(function () {
+        
+		$('#addnew').click(function(){
+
+				window.location.href="{:U('User/add')}";
+		 });
+
+
+    });
+
+	function del(id)
+	{
+		
+		
+		if(confirm("确定要删除吗？"))
+		{
+		
+			var url = "index.html";
+			
+			window.location.href=url;		
+		
+		}
+	
+	
+	
+	
+	}
+</script>
+<script>
+    $(function () {       
+		$('#backid').click(function(){
+				window.location.href="{:U('User/index')}";
+		 });
+
+    });
+</script>

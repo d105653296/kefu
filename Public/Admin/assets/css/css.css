@@ -1,0 +1,101 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}/* 防自定义背景色对网页的影响 */
+body{
+	background: url(../img/5.jpg) repeat-y; font-size:14px;color:#03cacc;font-family: '微软雅黑';
+
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section 
+{margin:0;padding:0;}/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, button, input, select, textarea {font-family: '微软雅黑';}/* 表单元素并不继承父级font */
+input, select, textarea {margin:0px;padding:0px;border:none;border:0;font-size:100%;}
+table {border-collapse:collapse;border-spacing:0;}/* 去掉各Table cell 的边距并让其边重合 */
+th {text-align:inherit;}/* IE bug fixed: th 不继承 text-align*/
+img {border: 0px ;margin:0;padding:0;}/* 去除默认边框,消除下边距 */
+iframe {display:block;}/* ie6 7 8(q) bug 显示为行内表现 */
+button { cursor: pointer; }
+ul,li{list-style:none;margin:0;padding:0; }/* 去掉列表前的标识, li 会继承，解决.ul标签在Mozilla中默认是有padding值的 */
+li{list-style-position:outside;vertical-align:middle;}/*IE6 问题解决：ul左浮动后，内部li出现左边距,li内有div浮动时，li出现4px间距，这是IE6的bug*/
+p{margin:0px;padding:0px;}
+
+/*字体所有*/
+h1, h2, h3, h4, h5, h6 {font-size:100%; }/* 标题自定义, 适应多个系统应用*/
+em{float:left;font-style:normal;}
+
+.f_12 {font-size:12px;}
+.f_14 {font-size:14px;}
+/*浮动和左中右对齐*/
+.f_l{float:left;display: inline;}
+.f_r {float:right;display: inline;}
+.f_c{clear:both;}
+
+.blank0{width:100%;height:0px;clear:both;overflow:hidden;}
+/*超链接*/
+a {text-decoration:none;color:#03cacc;}
+a:hover {text-decoration:none;}
+a:focus { outline: none; } /*点击链接时出现的虚线框消失，（消除焦点）*/
+a:link,a:visited,a:active {text-decoration: none;}
+a:hover {color:#7ec000;text-decoration: none;}
+input,textarea {border:1px #999999 solid;}
+
+.f_a { width:1173px; margin:0px auto;}
+
+html{
+width:100%;
+height:100%;
+margin:0;
+padding:0;
+}
+body{
+width:100%;
+height:100%;
+margin:0;
+padding:0;
+}
+#backgroundImage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+#backgroundImage img{
+    width: 100%;
+    height: 100%;
+}
+#onbackgroundbody{
+    width: 100%;
+    height: 100%;
+}
+
+.main{ position: fixed; top:30%; left:37%;_padding-top:250px;}
+.bk{ width:366px; height:366px; background: url(../img/1.jpg) no-repeat;margin:0 auto; box-shadow:0px 0px 40px  #333333;-webkit-box-shadow: 0px 0px 40px #333;
+    -moz-box-shadow: 0px 0px 40px #333; }
+/* IE6-8 Specific Code */
+body.ie6 .bk,
+body.ie7 .bk,
+body.ie8 .bk{
+   zoom: ;
+   filter:  progid:DXImageTransform.Microsoft.Shadow(Color=#333, Strength=40, Direction=0),
+			progid:DXImageTransform.Microsoft.Shadow(Color=#333, Strength=40, Direction=90),
+			progid:DXImageTransform.Microsoft.Shadow(Color=#333, Strength=40, Direction=180),
+			progid:DXImageTransform.Microsoft.Shadow(Color=#333, Strength=40, Direction=270);
+	}
+
+.form{ width:366px; overflow:hidden; margin:0 auto;padding-top:180px;}
+.form ul{ width:300px;margin:0 auto; }
+.form li{ width: 276px; height:32px; padding:5px;margin: 0 auto;}
+.form span{ color:#fff; line-height:32px; float:left;}
+.form img{ float:right;}
+
+.box{ width:250px;margin:0 auto;color:#fff; padding:10px;}
+.box img{ float:left; padding:0 20px 0 10px;}
+.box p{ line-height:13px;}
+
+.button{ width:250px; margin:0 auto; padding-top:10px;}
+.button_l{ width:93px; height:28px; background:url(../img/2.jpg) no-repeat; line-height:28px; color:#0060b2; font-size:14px; font-weight:bold; text-align:center; float:left;}
+.button_r{ width:93px; height:28px; background:url(../img/2.jpg) no-repeat; line-height:28px; color:#0060b2; font-size:14px; font-weight:bold; text-align:center; float: right;}

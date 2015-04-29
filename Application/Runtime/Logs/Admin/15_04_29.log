@@ -1,0 +1,6 @@
+[ 2015-04-29T08:31:33+08:00 ] 127.0.0.1 /kefu/index.php?m=Admin&c=public&a=login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.777045s ]
+NOTIC: [8] Use of undefined constant TURE - assumed 'TURE' I:\wamp\server\Apache\htdocs\kefu\Application\Admin\Conf\config.php 第 9 行.
+

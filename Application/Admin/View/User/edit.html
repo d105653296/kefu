@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+    <script type="text/javascript" src="__JS__/ckform.js"></script>
+    <script type="text/javascript" src="__JS__/common.js"></script> 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form action="{:U('User/update',array('id'=>$_GET[id]))}" method="post" class="definewidth m20" enctype="multipart/form-data">
+<table class="table table-bordered table-hover ">
+    <tr>
+        <td class="tableleft">头&nbsp;&nbsp;&nbsp;像：</td>
+        <td ><input type="text" name="data[imgpath]" value="{$list.imgpath}" /><input type='file'  name='imgpath'></td>
+    </tr>
+    <tr>
+        <td width="10%" class="tableleft">用户名：</td>
+        <td><input type="text" name="data[username]" value="{$list.username}"/></td>
+    </tr>
+   <tr>
+        <td class="tableleft">密&nbsp;&nbsp;&nbsp;码：</td>
+        <td ><input type="password" name="data[password]" value="{$list.password}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">联系人：</td>
+        <td ><input type="text" name="data[name]" value="{$list.name}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">年龄：</td>
+        <td ><input type="text" name="data[age]" value="{$list.age}"/></td>
+    </tr>
+    <tr>
+        <td>角&nbsp;&nbsp;&nbsp;色：</td>
+        <td ><select name="data[group_id]">
+                <option value="{$list.group_id}">{:GetGroupName($list[group_id],title)}</option>
+                <volist name="group" id="vo">
+                    <option value="{$vo.id}">{$vo.title}</option>
+                </volist>
+            </select></td>
+    </tr>
+        <tr>
+        <td class="tableleft">手机：</td>        
+        <td ><input type="text" name="data[mobile]" value="{$list.mobile}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">邮&nbsp;&nbsp;&nbsp;箱：</td>        
+        <td ><input type="text" name="data[email]" value="{$list.email}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">所在地：</td>
+        <td ><input type="text" name="data[address]" value="{$list.address}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">目前状态：</td>
+        <td ><input type="text" name="data[type]" value="{$list.type}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">所在行业：</td>
+        <td ><input type="text" name="data[trade]" value="{$list.trade}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">单位名称：</td>
+        <td ><input type="text" name="data[danwei]" value="{$list.danwei}"/></td>
+    </tr>
+      <tr>
+        <td class="tableleft">单位规模：</td>
+        <td ><input type="text" name="data[guimo]" value="{$list.guimo}"/></td>
+    </tr>
+    <tr>
+        <td class="tableleft">项目简介：</td>
+        <td ><textarea class="text-input textarea wysiwyg" id="textarea" name="data[description]" cols="79" rows="10" style='width:980px'>{$list.description}</textarea></td>
+    </tr>
+    <tr>
+        <td class="tableleft">状&nbsp;&nbsp;&nbsp;态：</td>
+        <td ><input type="radio" name="data[status]" value="1" checked/> 启用
+        <input type="radio" name="data[status]" value="0" /> 禁用</td>        
+    </tr>
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button type="submit" class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+</body>
+</html>
+<script>
+    $(function () {       
+		$('#backid').click(function(){
+				window.location.href="{:U('User/index')}";
+		 });
+
+    });
+</script>

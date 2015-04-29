@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>	
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{$meta_title}-昱泰后台管理系统</title>
+        <!-- 公用样式	-->
+        <link rel="stylesheet" href="__CSS__/reset.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="__CSS__/common.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="__CSS__/invalid.css" type="text/css" media="screen" />
+
+        <!-- 自定义样式	-->
+        <link rel="stylesheet" href="__CSS__/news.css" type="text/css" media="screen" />
+
+        <!-- 公用Js -->
+        <script type="text/javascript" src="__JS__/jquery/jquery-1.4.2.min.js"></script>		
+        <script type="text/javascript" src="__JS__/jquery/jquery.configuration.js"></script>
+        <script type="text/Javascript" src="__JS__/timer.js"></script>
+        <script type="text/javascript" src="__JS__/facebox.js"></script>
+        <!-- IE6 png透明修正 -->
+        <script type="text/javascript" src="__JS__/DD_belatedPNG_0.0.8a-min.js"></script>
+        <script type="text/javascript">
+            DD_belatedPNG.fix('.png_bg, img, li');
+        </script>
+
+        <!-- 自定义Js	-->
+
+
+    </head>
+
+    <body><div id="body-wrapper">
+
+            <div id="sidebar"><div id="sidebar-wrapper">
+
+                    <h1 id="sidebar-title"><a href="#">昱泰天成</a></h1>
+
+                    <!-- Logo (221px) -->
+                    <a href="#"><img id="logo" src="__IMG__/logo.png" alt="亿联超级企业门户" /></a>
+
+                    <div id="profile-links">
+                        <script type="text/Javascript" language="Javascript">week();</script>
+                        <span id="liveclock"></span>
+                        <script type="text/Javascript" language="Javascript">time();</script><br /><br />
+                        <a href="__ROOT__" title="浏览网站">浏 览 网 站</a>　|　<a href="{:U('Public/logout')}" title="退 出">退 出</a>
+                    </div>
+                    <ul class="main-nav nav1 lsp">				
+                        <li class="premenu">
+                            <a href="{:U('Category/index')}" target="right" class="nav-top-item no-submenu">
+                                栏目设置
+                            </a>
+                        </li>
+                        <li class="premenu"> 
+                            <a href="#" class="nav-top-item current">
+                                新闻管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Article/add')}" target="right">添加新闻</a></li>
+                                <li><a class="current" href="{:U('Article/index')}" target="right">新闻管理</a></li>
+                                <li><a href="#">专题管理</a></li>
+                                <li><a href="#">评论管理</a></li>
+                            </ul>
+                        </li>				
+                        <li class="premenu">
+                            <a href="#" class="nav-top-item">
+                                企业展示
+                            </a>
+                            <ul>
+                                <li><a href="{:U('About/index',array('id'=>1))}">公司简介</a></li>
+                                <li><a href="#">荣誉资质</a></li>
+                                <li><a href="{:U('About/index',array('id'=>2))}">企业文化</a></li>
+                                <li><a href="#">合作伙伴</a></li>
+                                <li><a href="#">大事记</a></li>
+                                <li><a href="{:U('About/index',array('id'=>3))}">联系我们</a></li>
+                            </ul>
+                        </li>				
+                        <li class="premenu">
+                            <a href="#" class="nav-top-item">
+                                产品管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Products/add')}">添加产品</a></li>
+                                <li><a href="{:U('Products/index')}">产品管理</a></li>
+                                <li><a href="#">产品评论</a></li>
+                            </ul>
+                        </li>				
+
+                    </ul> 
+
+                    <ul class="main-nav nav2 lsp">
+                        <li class="premenu">
+                            <a href="{:U(Category/index)}" class="nav-top-item no-submenu">
+                                栏目设置
+                            </a>
+                        </li>
+                        <li class="premenu">
+                            <a href="#" class="nav-top-item no-submenu">
+                                单页管理
+                            </a>
+                            <ul>
+                                <li><a href="####">关于我们</a></li>
+                                <li><a class="current" href="#">联系方式</a></li>
+                                <li><a href="#">企业文化</a></li>						
+                            </ul>
+                        </li>
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                产品管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Article/Index')}">产品分类一</a></li>
+                                <li><a class="current" href="#">产品分类二</a></li>
+                                <li><a href="#">产品分类三</a></li>						
+                            </ul>
+                        </li>				
+                        <li>
+                            <a href="{:U('Article/Index')}" class="nav-top-item">
+                                新闻管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Article/Index')}">新闻分类一</a></li>
+                                <li><a href="#">新闻分类一</a></li>
+                                <li><a href="#">新闻分类一</a></li>
+                                <li><a href="#">新闻分类一</a></li>
+                            </ul>
+                        </li>
+                    </ul> 
+
+                    <ul class="main-nav nav3 lsp">
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                会员管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Center/index')}" target="right">会员管理</a></li>
+                                <li><a class="current" href="#">会员设置</a></li>
+                                <li><a href="{:U('Center/group')}" target="right">会员组管理</a></li>						
+                            </ul>
+                        </li>	
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                管理员管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Center/index')}" target="right">会员管理</a></li>
+                                <li><a class="current" href="#">会员设置</a></li>
+                                <li><a href="{:U('Center/group')}" target="right">会员组管理</a></li>						
+                            </ul>
+                        </li>	
+                    </ul>
+
+                    <ul class="main-nav nav4 lsp">
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                系统设置
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Site/index')}" target="right">站点配置</a></li>
+                                <li><a href="#">SEO设置</a></li>
+                                <li><a href="#">URL设置</a></li>
+                                <li><a class="current" href="#">行为管理</a></li>
+                                <li><a href="{:U('Menu/index')}" target="right">后台菜单</a></li>
+                                <li><a href="{:U('Area/index')}" target="right">区域管理</a></li>
+                            </ul>
+                        </li>
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                日志管理
+                            </a>
+                            <ul>
+                                <li><a href="#">后台登录日志</a></li>
+                                <li><a class="current" href="#">后台操作日志</a></li>						
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="main-nav nav5 lsp">
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                模块管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Book/index')}">留言管理</a></li>
+                                <li><a class="current" href="{:U('Adv/index')}">广告管理</a></li>
+                                <li><a href="{:U('Ads/index')}">幻灯管理</a></li>
+                                <li><a href="{:U('Link/index')}">友情链接</a></li>
+                                <li><a href="#">评论管理</a></li>
+                            </ul>
+                        </li>	
+                        <li> 
+                            <a href="#" class="nav-top-item current"> 
+                                插件管理
+                            </a>
+                            <ul>
+                                <li><a href="{:U('Order/index')}">订单管理</a></li>
+                                <li><a class="current" href="#">支付管理</a></li>
+                                <li><a href="#">第三方登录</a></li>						
+                            </ul>
+                        </li>
+                    </ul>
+                </div></div>
+
+            <div id="topmenu">
+                <ul class="picnav lsp1 align-right">	
+                    <!--<volist name="menu" id="vo">
+                         <li><a  class="" href="{:U($vo['url'])}" >
+                            <img src="__IMG__/icons/sitemgr_48.png" alt="我的面板" /><br />
+                            {$vo['title']}
+                        </a></li>
+                    </volist>-->
+                    <li><a  class="" href=".nav1" >
+                            <img src="__IMG__/icons/sitemgr_48.png" alt="我的面板" /><br />
+                            我的面板
+                        </a></li>				
+                    <li><a class="" href=".nav2">
+                            <img src="__IMG__/icons/sell_48.png" alt="内容管理" /><br />
+                            内容管理
+                        </a></li>				
+                    <li><a class="" href=".nav3">
+                            <img src="__IMG__/icons/user_48.png" alt="用户管理" /><br />
+                            用户管理
+                        </a></li>				
+                    <li><a class="" href=".nav4">
+                            <img src="__IMG__/icons/setting_48.png" alt="系统设置" /><br />
+                            系统设置
+                        </a></li>				
+                    <li><a class="" href=".nav5">
+                            <img src="__IMG__/icons/comment_48.png" alt="站内消息" /><br />
+                            扩展插件
+                        </a></li>	
+
+                </ul>			
+                <div class="clear"></div>
+
+            </div>

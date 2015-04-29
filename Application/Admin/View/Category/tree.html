@@ -1,0 +1,31 @@
+<volist name="Cate" id="vo">
+
+    <tbody>
+
+        <tr>
+<!--            <td width="20px"><input type="checkbox" /></td>-->
+            <td>{$vo.sort}</td>
+            <td>{$vo.id}</td>
+    <php>$num=count(explode(',',$vo[arrid]));</php>
+    <td><for start="1" end="$num">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </for>
+    |--{$vo.title}                          
+</td>
+
+<td><php>if($vo[allow]==1){echo '允许';}else{echo '禁止';}</php>                        
+</td>
+
+<td>
+{:Getmodelname($vo[modelid])}
+</td>
+<td>
+    <input type="hidden" value="{$vo.arrid}">
+    <a href="{:U('Category/add',array('id'=>$vo['id']))}" title="ADD">添加</a>
+    <a href="{:U('Category/edit',array('id'=>$vo['id']))}" title="EDIT">编辑</a>
+    <a href="{:U('Category/delete',array('id'=>$vo['id']))}" title="DELETE">删除</a> 
+</td>
+</tr>
+</tbody>
+{:R('Category/tree',array('id'=>$vo['id']))}
+</volist> 

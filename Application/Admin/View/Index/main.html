@@ -1,0 +1,157 @@
+
+<div id="main-content">						
+			<!-- 用户信息/搜索 -->
+			<div id="top">
+				<div class="userinfo">
+					<div class="userhead"><img height="65" width="65" src="__IMG__/head65.jpg"/></div>
+					<div class="user-general">
+					<strong>UserName</strong>&nbsp;&nbsp;&nbsp;【超级管理员】 <br /><br />
+					站内信：<a href="#messages" rel="modal">[3]</a> &nbsp;&nbsp;<a href="#">个人设置</a>&nbsp;&nbsp;&nbsp;待审核：<a href="#">[0]</a><br /><br />
+					登录次数：745 &nbsp;&nbsp;&nbsp;上次登录：2010-06-23					
+					</div>
+				</div>
+
+				<div class="container lsp">
+					<ul class="tabs">
+						<li><a href="#tag1">新闻</a></li>
+						<li><a href="#tag2">产品</a></li>
+					</ul>
+					<div class="tab_container">
+						<div id="tag1" class="tab_content">
+							<form action="#" method="post" rel="external">
+								<input name="txtnews" id="txtnews" type="text" onblur="if(this.value=='')this.value='输入新闻标题'" onfocus="this.value=''" value="输入新闻标题" title="输入新闻标题" />
+								<a class="button" href="#">&nbsp;搜索&nbsp;</a>
+							</form>
+						</div>
+						<div id="tag2" class="tab_content">
+							<form action="#" method="post" rel="external">
+								<input name="txtproduct" id="txtproduct" type="text" onblur="if(this.value=='')this.value='输入产品名称'" onfocus="this.value=''" value="输入产品名称" title="输入产品名称" />
+								<a class="button" href="#">&nbsp;搜索&nbsp;</a>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<ul class="shortcut-buttons-set lsp">				
+				<li><a  class="shortcut-button" href="{:U('Article/add')}" ><span>
+					<img src="__IMG__/icons/addarticle_48.png" alt="添加新闻" /><br />
+					添加新闻
+				</span></a></li>				
+				<li><a class="shortcut-button" href="{:U('Article/index')}"><span>
+					<img src="__IMG__/icons/paper_content_pencil_48.png" alt="新闻管理" /><br />
+					新闻管理
+				</span></a></li>
+                               
+				<li><a class="shortcut-button" href="{:U('Category/index')}"><span>
+					<img src="__IMG__/icons/category-add.png" alt="" /><br />
+					栏目设置
+				</span></a></li>				
+				<li><a class="shortcut-button" href="{:U('User/index')}"><span>
+					<img src="__IMG__/icons/user.png" alt="" /><br />
+					会员管理
+				</span></a></li>
+                                <li><a class="shortcut-button" href="{:U('Product/index')}"><span>
+					<img src="__IMG__/icons/badge-yellow.png" alt="" /><br />
+					留言管理
+				</span></a></li>
+                                 <li><a class="shortcut-button" href="#"><span>
+					<img src="__IMG__/icons/templates.png" alt="" /><br />
+					模块管理
+				</span></a></li>
+                                <li><a class="shortcut-button" href="#"><span>
+					<img src="__IMG__/icons/tag-green.png" alt="" /><br />
+					插件管理
+				</span></a></li>
+					
+			</ul>
+			<div class="clear"></div>
+
+			<!-- ********************************* 程序替换部分 Begin ********************************* -->
+
+			<div class="content-box">
+				
+								
+			</div>
+			<div class="clear"></div>
+                        <!-- End .content-box -->
+                            <div class="content-box column-left">
+                              <div class="content-box-header">
+                                <h3>系统信息</h3>
+                              </div>
+                              <!-- End .content-box-header -->
+                              <div class="content-box-content">
+                                <div class="tab-content default-tab">
+                                  <table>
+                                       <volist name="server_info" id="vo">
+                                          
+                                          <tr>
+						<th>{$key}</th>
+                                                <td>{$vo}</td>											</td>
+					</tr>  
+                                       </volist>
+						<tr>
+						<th>MYSQL版本</th>
+						<php>
+							$system_info_mysql = M()->query("select version() as v;");
+						</php>
+						<td>{$system_info_mysql.0.v}</td>
+					</tr>
+					<tr>
+						<th>上传限制</th>
+						<td>{:ini_get('upload_max_filesize')}</td>
+					</tr>
+				</table>
+
+                                </div>
+                                <!-- End #tab3 -->
+                              </div>
+                              <!-- End .content-box-content -->
+                            </div>
+                            <!-- End .content-box -->
+                            <div class="content-box column-right">
+                              <div class="content-box-header">
+                                <!-- Add the class "closed" to the Content box header to have it closed by default -->
+                                <h3>技术团队</h3>
+                              </div>
+                              <!-- End .content-box-header -->
+                              <div class="content-box-content">
+                                <div class="tab-content default-tab">
+                                  <table>
+					<tr>
+						<th>总策划</th>
+						<td>谢广军</td>
+					</tr>
+                                        
+					<tr>
+						<th>产品设计及研发团队</th>
+						<td>张瑞 谢广军 杜泽威 刘豆豆 高晓 李萌</td>
+					</tr>
+                                        
+					<tr>
+						<th>界面及用户体验团队</th>
+						<td>谷建华 温家鑫 孔健康 葛小策 薛辈群</td>
+					</tr>
+                                        
+					<tr>
+						<th>官方网址</th>
+						<td><a href="http://www.hebec.net" target="_blank">www.hebec.net</a></td>
+					</tr>
+					<tr>
+						<th>官方QQ群</th>
+						<td><a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=526e55c63d93d14dcbd78f9c86d1789c9f2839b5530191dc841e08127169eb06"><img border="0" src="http://pub.idqqimg.com/wpa/images/group.png" alt="昱泰" title="昱泰"></a></td>
+					</tr>
+					<tr>
+						<th>BUG反馈</th>
+						<td>QQ:55363653</td>
+					</tr>
+				</table>
+
+                                </div>
+                                <!-- End #tab3 -->
+                              </div>
+                              <!-- End .content-box-content -->
+                            </div>
+                            <!-- End .content-box -->
+                            <div class="clear"></div>
+

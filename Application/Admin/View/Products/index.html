@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>产品管理</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+        <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+        <script type="text/javascript" src="__JS__/jquery.js"></script>
+        <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+        <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+        <script type="text/javascript" src="__JS__/ckform.js"></script>
+        <script type="text/javascript" src="__JS__/common.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                var all_checked = false;
+                $(":checkbox").click(function() {
+                    var table = $(this).parents("table");
+                    if($(this).attr("id") === "all") {
+                        table.find(":checkbox").prop("checked", !all_checked);
+                        all_checked = !all_checked;
+                    }
+                    else {
+                        table.find(":checkbox[id!=all]").each(function (i) {
+                            if(!$(this).is(":checked")) {
+                                table.find("#all").prop("checked", false);
+                                all_checked = false;
+                                return false;
+                            }
+                            $("#all").prop("checked", true);
+                            all_checked = true;
+                        });
+                    }
+                });
+            });
+        </script>
+        <script type="text/javascript">
+            function check(){
+                document.form.action="{:U('Products/check')}";
+                document.form.submit();
+            }
+        </script>
+
+        <style type="text/css">
+            body {
+                padding-bottom: 40px;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+
+            @media (max-width: 980px) {
+                /* Enable use of floated navbar text */
+                .navbar-text.pull-right {
+                    float: none;
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <form class="form-inline definewidth m20" action="{:U('Products/index')}" method="post">  
+            案例名称：
+            <input type="text" name="name" id="name" class="abc input-default" placeholder="" value="">&nbsp;&nbsp;  
+            <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增产品</button>
+        </form>
+        <form action="{:U('Products/mdel')}" method="post" name="form">
+            <table class="table table-bordered table-hover definewidth m10" >
+                <thead>
+                    <tr>
+                        <th><input class="check-all" type="checkbox" id='all' name="all" /></th>
+                        <th>编号</th>
+                        <th>产品名称</th>
+                        <th>栏目</th>
+                        <th>作者</th>
+                        <th>审核</th>
+                        <th>发布时间</th>
+                        <th>管理操作</th>
+                    </tr>
+                </thead>
+                <volist name='list' id='vo'>
+                    <tr>
+                        <td><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
+                        <td>{$vo.id}</td>
+                        <td class="newstitle"><a href="{:U('Products/edit',array('id'=>$vo['id']))}" title="编辑该产品">{$vo.name}</a></td>
+                        <td>{:GetCategoryName($vo[category_id])}</td>
+                        <td>{$vo.author}</td>
+                        <td><php>if($vo[status]==1){echo '通过';}else{echo '未审核';}</php></td>
+                    <td>{$vo.lastupdatetime}</td>
+                    <td>
+                        <a href="{:U('Products/edit',array('id'=>$vo[id]))}">编辑</a>  
+                        <a href="{:U('Products/delete',array('id'=>$vo[id]))}">删除</a>
+                    </td>
+                    </tr>
+                </volist>
+                <tr><td colspan="8"><button type="submit" class="btn btn-primary">删除</button>&nbsp;&nbsp;<button type="button" class="btn btn-success" onclick="check()">审核</button></td></tr>
+            </table>
+        </form>
+        <div class="inline pull-right page">
+            {$page}
+            <!--         10122 条记录 1/507 页  <a href='#'>下一页</a>     <span class='current'>1</span><a href='#'>2</a><a href='/chinapost/index.php?m=Label&a=index&p=3'>3</a><a href='#'>4</a><a href='#'>5</a>  <a href='#' >下5页</a> <a href='#' >最后一页</a>   -->
+        </div>
+    </body>
+</html>
+<script>
+    $(function() {
+
+        $('#addnew').click(function() {
+
+            window.location.href = "{:U('Products/add')}";
+        });
+
+
+    });
+
+    function del(id)
+    {
+
+
+        if (confirm("确定要删除吗？"))
+        {
+
+            var url = "index.html";
+
+            window.location.href = url;
+
+        }
+
+
+
+
+    }
+</script>

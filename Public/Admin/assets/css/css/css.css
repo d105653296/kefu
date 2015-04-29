@@ -1,0 +1,62 @@
+ @charset "utf-8";
+/* CSS Document */
+
+html {-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;}/* 防自定义背景色对网页的影响 */
+body{
+	background:#ccc; font-size:13px;color:color:#777777;font-family:"宋体",Arial; 
+
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section 
+{margin:0;padding:0;}/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body, button, input, select, textarea {font-family:'宋体',Arial;}/* 表单元素并不继承父级font */
+input, select, textarea {margin:0px;padding:0px;border:none;border:0;font-size:100%;}
+table {border-collapse:collapse;border-spacing:0;}/* 去掉各Table cell 的边距并让其边重合 */
+th {text-align:inherit;}/* IE bug fixed: th 不继承 text-align*/
+img {border: 0px ;margin:0;padding:0;}/* 去除默认边框,消除下边距 */
+iframe {display:block;}/* ie6 7 8(q) bug 显示为行内表现 */
+button { cursor: pointer; }
+ul,li{list-style:none;margin:0;padding:0; }/* 去掉列表前的标识, li 会继承，解决.ul标签在Mozilla中默认是有padding值的 */
+li{list-style-position:outside;vertical-align:middle;}/*IE6 问题解决：ul左浮动后，内部li出现左边距,li内有div浮动时，li出现4px间距，这是IE6的bug*/
+p{margin:0px;padding:0px;color:#777777;}
+
+/*字体所有*/
+h1, h2, h3, h4, h5, h6 {font-size:100%; }/* 标题自定义, 适应多个系统应用*/
+em{float:left;font-style:normal;}
+
+.f_12 {font-size:12px;}
+.f_14 {font-size:14px;}
+/*浮动和左中右对齐*/
+.f_l{float:left;display: inline;}
+.f_r {float:right;display: inline;}
+.f_c{clear:both;}
+
+.blank0{width:100%;height:0px;clear:both;overflow:hidden;}
+/*超链接*/
+a {text-decoration:none;color:#777777;}
+a:hover {text-decoration:none;color:#50a504}
+a:focus { outline: none; } /*点击链接时出现的虚线框消失，（消除焦点）*/
+a:link,a:visited,a:active {text-decoration: none;}
+a:hover {color:#50a504;text-decoration: none;}
+input,textarea {border:1px #999999 solid;}
+
+.f_a { width:1010px; margin:0px auto;}
+
+.error,.Correct{ width:400px; height:225px;position: fixed; top:30%; left:37%;_padding-top:250px; background:#fff;}
+.error_t,.Correct_t{ width:218px; margin:0 auto; padding:25px 0; }
+.error_t img,.Correct_t img{ padding-right:20px; float:left;}
+.error_t p,.Correct_t p{line-height:46px; font-weight: bold; font-family:"微软雅黑"; font-size:30px;}
+.error_t p{ color:#d90404;}
+.Correct_t p{ color:#03cacc;}
+.error_b,.Correct_b{ width:218px;margin:0 auto; font-family:"微软雅黑"; font-size:20px; }
+.error_b{color:#d90404;}
+.Correct_b{ color:#03cacc;}
+.error_b span,.Correct_b span{ font-size:25px; padding:0 10px;}
+
+.error_m,.Correct_m{ padding:20px; width:283px; margin:0 auto;}
+.error_m_l,.Correct_m_l{ width:113px; height:44px;  color:#fff; font-family:"微软雅黑"; font-size:18px; line-height:44px; text-align:center;}
+.error_m_l{background:#d90404;}
+.Correct_m_l{background:#03cacc;}
+.error_m_r,.Correct_m_r{ width:113px; height:44px; background:#d90404; color:#fff; font-family:"微软雅黑"; font-size:18px; line-height:44px; text-align:center;}
+.error_m_r{background:#d90404;}
+.Correct_m_r{background:#03cacc;}

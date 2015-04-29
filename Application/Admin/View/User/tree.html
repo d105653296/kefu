@@ -1,0 +1,26 @@
+<volist name="Cate" id="vo">
+
+    <tbody>
+
+        <tr>
+            <td><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
+            <td>{$vo.sort}</td>
+            <td>{$vo.id}</td>
+    <php>$num=count(explode(',',$vo[arrid]));</php>
+    <td><for start="1" end="$num">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </for>
+    |--{$vo.title}                          
+</td>
+
+<td><php>if($vo[allow]==1){echo '允许';}else{echo '禁止';}</php>                        
+</td>
+
+<td>
+{:Getmodelname($vo[modelid])}
+</td>
+
+</tr>
+</tbody>
+{:R('Category/tree',array('id'=>$vo['id']))}
+</volist> 

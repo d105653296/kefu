@@ -1,0 +1,86 @@
+<include file="Public:header" />
+
+
+<div id="main-content">						
+
+    <div class="clear"></div>
+
+    <!-- ********************************* 程序替换部分 Begin ********************************* -->
+
+    <div class="content-box">
+        <div class="content-box-header default-tab">
+            <h3 class="lsp"><img src="__IMG__/icons/homepage.png" alt="首 页" /> <a href="index.html">首页</a>-区域管理</h3>
+            <div class="clear"></div>
+        </div>
+        <div class="content-box-search">
+            <div class="search-text"> <a class="button" href="{:U('Area/add')}"> &nbsp;&nbsp;添加区域&nbsp;&nbsp; </a></div>
+            <div class="search-select">
+                <form action="#" method="post">
+
+                    <input class="search-input input-180" type="text" onblur="if (this.value == '')
+                                                                    this.value = '标题'" onfocus="this.value = ''" class="w350" value="标题" title="标题" />&nbsp;&nbsp;
+
+                    <a class="button" href="#"> &nbsp;&nbsp;搜 索&nbsp;&nbsp; </a>
+                </form>
+
+            </div>
+        </div>
+        <div class="content-box-content">
+            <div class="tab-content default-tab" id="tab1">
+                <form method="post" action="{:U('Area/del')}">
+                <table>							
+                    <thead>
+                        <tr class="lsp2">
+                            <th width="20px"><input class="check-all" type="checkbox" /></th>
+                            <th>排序</th>
+                            <th>ID</th>
+                            <th>区域名称</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>						 
+                    <volist name="tree" id="vo">
+
+                        <tbody>
+
+                            <tr>
+                                <td width="20px"><input type="checkbox" name="id[]" value="{$vo.id}" /></td>
+                                <td>{$vo.sort}</td>
+                                <td><a href="#" title="{$vo.id}">{$vo.id}</a></td>
+
+                                <td>{$vo.title}                           
+                                </td>
+                                <td>
+                                    <input type="hidden" value="{$vo.arrid}">
+                                    <a href="{:U('Area/add',array('id'=>$vo['id']))}" title="Edit">添加</a>
+                                    <a href="{:U('Area/edit',array('id'=>$vo['id']))}" title="Edit">编辑</a>
+                                    <a href="{:U('Area/delete',array('id'=>$vo['id']))}" title="Delete">删除</a> 
+                                </td>
+                            </tr>
+                        </tbody>
+                        {:R('Area/tree',array('id'=>$vo['id']))}
+                    </volist>   
+                    <tfoot>
+                        <tr>
+                            <td colspan="6">
+                                <div class="bulk-actions align-left">
+                                    <input class="button" type="submit" value="&nbsp;&nbsp;删&nbsp;除&nbsp;&nbsp;">
+                                </div>										
+
+                                <div class="clear"></div>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+                </form>
+                
+
+            </div>
+
+
+
+            <!-- End #tab2 -->
+
+        </div>				
+    </div>
+    <div class="clear"></div>
+    <include file="Public:foot" />

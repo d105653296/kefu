@@ -1,0 +1,57 @@
+﻿
+/*************** Content Box ***************/
+
+.content-box { border: 1px solid #ccc; margin: 0 0 20px 0; background: #fff; }
+.content-box-header { background: #e5e5e5 url('../images/bg-content-box.gif') top left repeat-x; margin-top: 1px; height: 40px; }
+.content-box-header h3 { padding: 12px 15px 10px; float: left; }
+.content-box-content { padding: 20px; font-size: 13px; border-top: 1px solid #ccc; }
+.content-box-search {  padding: 20px;  font-size: 13px; border-top: 1px solid #ccc; height: 35px; }
+.news-content { margin: 20px; }
+.search-text { float:left; width:360px; }
+.search-select { float:right; margin-top:6px; }
+
+/************ Table ************/
+
+.newstitle a { color: #555; }
+.newstitle a:hover { color: #57a000; }
+#main-content table { width: 100%; border-collapse: collapse; }                
+#main-content table thead th { font-weight: bold; font-size: 15px; border-bottom: 1px solid #ddd; }
+#main-content tbody { border-bottom: 1px solid #ddd; }
+#main-content tbody tr.alt-row { background: #f3f3f3; }
+                
+#main-content table td,
+#main-content table th { padding: 10px; line-height: 1.3em; }	
+#main-content table tfoot td .bulk-actions { padding: 15px 0 5px 0; }
+
+/*************** 表单 ***************/
+
+form label { display: block; padding: 0 0 10px; font-weight: bold; font-size:15px; }
+form fieldset legend { font-weight: bold; margin-bottom: 10px; padding-top: 10px; }
+form p small { font-size: 0.75em; color: #777; }
+				
+form input.text-input,
+form textarea {
+                padding: 10px 0 0 5px;
+                font-size: 13px;
+                background: #fff url('../images/bg-form-field.gif') top left repeat-x;
+                border: 1px solid #d5d5d5;
+				color: #333;
+                }
+
+form input.search-input {
+				background: #fff url('../images/bg-form-field.gif') top left repeat-x; 
+				height: 22px;
+				padding: 8px 0 0 5px; 
+				font-size:14px; 
+				color:#ccc; 
+				border: 1px solid #d5d5d5;
+                }
+
+form .input-120 { width: 120px !important; height: 21px !important; }
+form .input-180 { width: 180px !important; height: 21px !important; }
+form .small-input { width: 25% !important; height: 21px !important; }
+form .medium-input { width: 60% !important; height: 21px !important; }
+form .large-input { width: 97.5% !important; font-size: 16px !important; padding: 8px !important; }
+form textarea { width: 97.5% !important; font-family: Arial, Helvetica, sans-serif; }
+form input[type="checkbox"],
+form input[type="radio"] { padding: 0; background: none; border: 0; }

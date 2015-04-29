@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link href="__CSS__/bui-min.css" rel="stylesheet">
+    <link href="__CSS__/dpl-min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-responsive.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <script type="text/javascript" src="__JS__/jquery.js"></script>
+    <script type="text/javascript" src="__JS__/jquery.sorted.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.js"></script>
+    <script type="text/javascript" src="__JS__/ckform.js"></script>
+    <script type="text/javascript" src="__JS__/common.js"></script> 
+
+    <style type="text/css">
+        body {
+            padding-bottom: 40px;
+        }
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<form id="J_Form" action="{:U('User/zadd',array('id'=>$_GET[id]))}" method="post" class="definewidth m20" enctype="multipart/form-data">
+<input type="hidden" name="id" value="" />
+<table class="table table-bordered table-hover ">
+    <tr>
+        <td width="10%" class="tableleft"><em style="color:red;">*</em> 头像：</td>
+        <td><input type='file'   name='imgpath'></td>
+    </tr>
+    <tr>
+        <td width="10%" class="tableleft"><em style="color:red;">*</em> 用户名：</td>
+        <td><input type="text" data-rules="{required : true}" name="data[username]" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 密&nbsp;&nbsp;&nbsp;码：</td>
+        <td ><input type="password" data-rules="{required : true}" name="data[password]" value=""/></td>
+    </tr>  
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 邮&nbsp;&nbsp;&nbsp;箱：</td>
+        
+            <td ><input type="text" data-rules="{required : true}" name="data[email]" value=""/></td>    
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 职位：</td>
+        <td ><input type="text" data-rules="{required : true}" name="data[post]" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 风格：</td>
+        <td ><input type="text" data-rules="{required : true}" name="data[style]" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 设计理念：</td>
+        <td ><textarea class="text-input textarea wysiwyg" data-rules="{required : true}" id="textarea" name="data[design]" cols="79" rows="10" style='width:980px'></textarea></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 手机号：</td>
+        <td ><input type="text" data-rules="{required : true}" name="data[mobile]" value=""/></td>
+    </tr>
+    <tr>
+        <td><em style="color:red;">*</em> 角&nbsp;&nbsp;&nbsp;色：</td>
+        <td ><select name="data[group_id]" data-rules="{required : true}">
+                <option value="4">质检员</option>
+                <volist name="group" id="vo">
+                    <option value="{$vo.id}">{$vo.title}</option>
+                </volist>
+
+            </select></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 工种：</td>
+        <td ><input type="text" data-rules="{required : true}" name="data[type]" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 从业年限：</td>
+        <td ><input type="text" data-rules="{required : true}" name="data[time]" value=""/></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 服务理念：</td>
+        <td ><textarea class="text-input textarea wysiwyg" data-rules="{required : true}" id="textarea" name="data[service]" cols="79" rows="10" style='width:980px'></textarea></td>
+    </tr>
+    <tr>
+        <td class="tableleft"><em style="color:red;">*</em> 状&nbsp;&nbsp;&nbsp;态：</td>
+        
+            <!--<td ><input type="text" name="data[status]" value=""/></td>-->
+            <td ><input type="radio" name="data[status]" value="1" checked/> 启用
+           <input type="radio" name="data[status]" value="0" /> 禁用</td>
+        
+    </tr>     
+    <tr>
+        <td class="tableleft"></td>
+        <td>
+            <button type="submit" class="btn btn-primary">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>
+        </td>
+    </tr>
+</table>
+</form>
+    <script src="__JS__/jquery-1.8.1.min.js"></script>
+        <script src="__JS__/bui-min.js"></script>
+        <script src="__JS__/config-min.js"></script>
+        <script type="text/javascript">
+            BUI.use('bui/form', function(Form) {
+
+                new Form.Form({
+                    srcNode: '#J_Form'
+                }).render();
+
+            });
+
+        </script>
+</body>
+</html>
+<script>
+    $(function () {       
+		$('#backid').click(function(){
+				window.location.href="{:U('User/zhijianyuan')}";
+		 });
+
+    });
+</script>

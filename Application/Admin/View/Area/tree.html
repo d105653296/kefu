@@ -1,0 +1,25 @@
+<volist name="Cate" id="vo">
+
+    <tbody>
+
+        <tr>
+            <td>{$vo.sort}</td>
+            <td>{$vo.id}</td>
+    <php>$num=count(explode(',',$vo[arrid]));</php>
+    <td><for start="1" end="$num">
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    </for>
+    |--{$vo.name}                          
+</td>
+
+
+<td>
+    <input type="hidden" value="{$vo.arrid}">
+    <a href="{:U('Area/add',array('id'=>$vo['id']))}" title="Edit">添加</a>
+    <a href="{:U('Area/edit',array('id'=>$vo['id']))}" title="Edit">编辑</a>
+    <a href="{:U('Area/delete',array('id'=>$vo['id']))}" title="Delete">删除</a> 
+</td>
+</tr>
+</tbody>
+{:R('Area/tree',array('id'=>$vo['id']))}
+</volist>

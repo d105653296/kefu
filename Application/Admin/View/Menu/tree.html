@@ -1,0 +1,25 @@
+<volist name="Cate" id="vo">
+
+    <tbody>
+
+        <tr>
+            <!--            <td width="20px"><input type="checkbox" /></td>-->
+            <td>{$vo.sort}</td>
+            <td>{$vo.id}</td>
+  
+    <td>
+        
+      &nbsp;&nbsp;&nbsp;&nbsp   |--{$vo.title}                          
+    </td>
+    <td>{$vo.url}</td>
+    <td>{$vo.group}</td>
+    <td>
+        <input type="hidden" value="{$vo.arrid}">
+        <a href="{:U('Menu/add',array('id'=>$vo['id']))}" title="ADD">添加</a>
+        <a href="{:U('Menu/edit',array('id'=>$vo['id']))}" title="EDIT">编辑</a>
+        <a href="{:U('Menu/delete',array('id'=>$vo['id']))}" title="DELETE">删除</a> 
+    </td>
+    </tr>
+    </tbody>
+{:R('Menu/tree',array('id'=>$vo['id']))}
+</volist>
